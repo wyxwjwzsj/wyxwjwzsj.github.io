@@ -1,0 +1,30 @@
+<html>
+<body>
+    <meta charset="UTF-8">
+<script>
+    function warp() {
+        var dest = document.getElementById("url").value;
+        if (checkUrl(dest)==true) {
+            window.open(dest)
+        }else{
+            alert("网址输入有误，请完整地输入所要访问的网址");
+        }
+    }
+    function checkUrl(url) {
+        var str = url;
+        var regexp = "(http|ftp|https):\\/\\/[\\w-]+(\\.[\\w-]+)+(:[0-9]{1,5})?\\/?[\\w./?&*\\-=%~:;()'^@+$,#\\[\\]]*";
+        var re = new RegExp(regexp);
+        if (re.test(str) == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+<p>请在下方输入所要访问的网址，点击按钮以跳转(通过WebVPN访问)。</p>
+<p>请注意：务必完整地输入所要访问的网址，包含http(s)://</p>
+<input id="url" value="http://" size=40></input>
+<button id="warp" onclick="javascript:warp();">跳转</button>
+<p>项目代码来源：https://github.com/MerlynAllen/jlu-vpns-dokodemo-door ,向代码原作者表示衷心的感谢！</p>
+</body>
+</html>
